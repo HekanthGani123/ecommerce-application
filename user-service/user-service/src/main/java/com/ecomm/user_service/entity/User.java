@@ -1,9 +1,11 @@
 package com.ecomm.user_service.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
+@Entity
+@Table(name = "users")
 public class User {
 
     @Id
