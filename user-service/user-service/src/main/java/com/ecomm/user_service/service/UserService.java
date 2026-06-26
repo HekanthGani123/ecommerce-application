@@ -6,6 +6,8 @@ import com.ecomm.user_service.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -21,5 +23,13 @@ public class UserService {
         user.setPassword(request.getPassword());
 
         return repository.save(user);
+    }
+
+    public List<User> getUsers() {
+        return repository.findAll();
+    }
+
+    public User getUserById(Long id) {
+        return repository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
     }
 }
